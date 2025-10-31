@@ -1,0 +1,210 @@
+/* ======== ESTILOS GENERALES ======== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F7FA;
+    color: #222;
+}
+
+/* Encabezado */
+header {
+    background-color: #0A1F44;
+    color: #00BFFF;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 32px;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* Navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 12px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0A1F44;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #007BFF;
+}
+
+/* Buscador */
+nav form {
+    display: flex;
+    gap: 8px;
+}
+
+nav input[type="search"] {
+    padding: 6px 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+nav input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+nav input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Contenido principal */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    gap: 25px;
+}
+
+/* Artículo */
+article {
+    flex: 3;
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+article h2 {
+    color: #0A1F44;
+    text-align: center;
+}
+
+article h3 {
+    color: #007BFF;
+    margin-top: 25px;
+}
+
+/* ======== ASIDE ======== */
+aside {
+    flex: 1;
+    background-color: #0A1F44;
+    color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+aside h2 {
+    color: #00BFFF;
+}
+
+aside ul li a {
+    color: #E0E0E0;
+    text-decoration: none;
+}
+
+aside ul li a:hover {
+    color: #00BFFF;
+}
+
+/* ======== FOOTER ======== */
+footer {
+    background-color: #0A1F44;
+    color: #FFF;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* ---------------------------------------------------- */
+/* NUEVOS ESTILOS PARA EL CARRUSEL (5 IMÁGENES, 400PX ALTO) */
+/* ---------------------------------------------------- */
+
+.carrusel-solo-css {
+    flex-basis: 100%; 
+    max-width: 100%;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.carrusel-contenido {
+    display: flex;
+    /* 500% para 5 imágenes */
+    width: 500%; 
+    height: 400px; /* Altura aumentada */
+    
+    /* Aumentamos la duración a 25s (5s por imagen) */
+    animation: deslizar 25s ease-in-out infinite; 
+}
+
+.diapositiva {
+    width: 20%; /* 100% dividido por 5 imágenes */
+    flex-shrink: 0;
+    position: relative;
+}
+
+.diapositiva img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Estilo para el texto superpuesto */
+.leyenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(10, 31, 68, 0.75); 
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+/* ---------------------------------------------------- */
+/* ANIMACIÓN AUTOMÁTICA (@keyframes) PARA 5 IMÁGENES */
+/* ---------------------------------------------------- */
+
+@keyframes deslizar {
+    /* Imagen 1 (0% - 15%): Posición 0% */
+    0%, 15% { transform: translateX(0%); } 
+
+    /* Imagen 2 (20% - 35%): Posición -20% */
+    20%, 35% { transform: translateX(-20%); } 
+
+    /* Imagen 3 (40% - 55%): Posición -40% */
+    40%, 55% { transform: translateX(-40%); } 
+
+    /* Imagen 4 (60% - 75%): Posición -60% */
+    60%, 75% { transform: translateX(-60%); } 
+
+    /* Imagen 5 (80% - 95%): Posición -80% */
+    80%, 95% { transform: translateX(-80%); } 
+
+    /* Regreso (100%): Vuelve a la Imagen 1 */
+    100% { transform: translateX(0%); }
+}
+
+/* Pausar la animación al pasar el ratón */
+.carrusel-solo-css:hover .carrusel-contenido {
+    animation-play-state: paused;
+}
